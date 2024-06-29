@@ -1,0 +1,72 @@
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0;
+}
+
+table {
+	max-width: none;
+}
+
+.data_table {
+    border-collapse: collapse;
+
+	border-spacing: 0;
+	margin:0px;
+	padding:0px;
+	white-space:nowrap;
+
+	font-size:14pt;
+	font-family:Tahoma;
+	font-weight:normal;
+
+	background-color:#F8F8F8;
+}
+
+td {
+	border-style:solid;
+	border-color:#808080;
+	border-width:1px 1px 1px 1px;
+	padding-left:7px;
+	padding-right:7px;
+	white-space:nowrap;
+	text-align:left;
+}
+
+thead td {
+	background-color: #99CCFF;
+	font-weight: bold;
+	text-align: left;
+}
+
+tbody {
+	 /* background-color:#C0C0C0;  */
+}
+
+.data_HP {
+	background-color:#FFCC00;
+	font-weight:bold;
+}
+
+.data_IC {
+	background-color:#CCFFFF;
+	font-weight:bold;
+}
+
+.data_BC {
+	font-weight:bold;
+	text-align:left;
+}
+
+.data_blank {
+	background-color:#FFFFFF;
+	border-color:#FFFFFF;
+	border-width:0 0 0 0;
+}
+
+
