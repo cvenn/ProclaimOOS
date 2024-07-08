@@ -8,7 +8,7 @@ internal partial class Program {
             ret = false;
         } else {
             string filename = args[0];
-            string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            string exePath = Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)!;
             //Console.WriteLine($"EXE path: {exePath}");
             ret = new ProclaimOOS().Process(filename, @$"{exePath}\..\output");
         }

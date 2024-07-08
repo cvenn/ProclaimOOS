@@ -37,16 +37,17 @@ internal partial class Program {
                 using StreamReader sr = new(entry.Open());
                 using JsonReader jr = new JsonTextReader(sr);
                 Presentation? pres = serializer.Deserialize<Presentation>(jr);
-                if (null != pres) {
-
-                    // Transform model objects and render as HTML (using Razor template)
-                    string template = File.ReadAllText(@$"{outputFolder}\css\Presentation.cshtml");
-                    string htmlFile = @$"{outputFolder}\OrderOfService.html";
-                    RenderHtml(pres, template, htmlFile);
-
-                    // Open final HTML file in default application (usually a web browser)
-                    OpenHtmlFileInBrowser(htmlFile);
+                if (null == pres) {
+                    throw new Exception("Could not interpret Presentation Backup file data");
                 }
+
+                // Transform model objects and render as HTML (using Razor template)
+                string template = File.ReadAllText(@$"{outputFolder}\css\Presentation.cshtml");
+                string htmlFile = @$"{outputFolder}\OrderOfService.html";
+                RenderHtml(pres, template, htmlFile);
+
+                // Open final HTML file in default application (usually a web browser)
+                OpenHtmlFileInBrowser(htmlFile);
             }
             catch (Exception ex) {
                 Console.WriteLine($"Failed to process Proclaim backup file: {ex.Message}");
@@ -60,9 +61,6 @@ internal partial class Program {
             const string key = "PresentationKey";
             string html = Engine.Razor.RunCompile(template, key, null, obj);
             File.WriteAllText(fileName, html);
-
-            //using StreamWriter sw = new(fileName);
-            //obj.ToHtml(sw);
         }
 
         private void OpenHtmlFileInBrowser(string htmlFile) {
