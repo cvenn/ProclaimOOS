@@ -8,7 +8,7 @@ using System.IO.Compression;
 internal partial class Program {
     internal class ProclaimOOS {
 
-        internal bool Process(string filename, string outputFolder) {
+        internal bool Process(string filename, string dataFolder) {
 
             // Open Proclaim Backup (.prs) file - it is a disguised ZIP archive
             ZipArchive zip;
@@ -42,8 +42,8 @@ internal partial class Program {
                 }
 
                 // Transform model objects and render as HTML (using Razor template)
-                string template = File.ReadAllText(@$"{outputFolder}\css\Presentation.cshtml");
-                string htmlFile = @$"{outputFolder}\OrderOfService.html";
+                string template = File.ReadAllText(@$"{dataFolder}\css\Presentation.cshtml");
+                string htmlFile = @$"{dataFolder}\OrderOfService.html";
                 RenderHtml(pres, template, htmlFile);
 
                 // Open final HTML file in default application (usually a web browser)
