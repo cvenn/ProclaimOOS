@@ -48,19 +48,19 @@ tbody {
 	 /* background-color:#C0C0C0;  */
 }
 
-.data_HP {
+.video {
 	background-color:#FFCC00;
 	font-weight:bold;
 }
 
-.data_IC {
+.song {
 	background-color:#CCFFFF;
 	font-weight:bold;
 }
 
-.data_BC {
-	font-weight:bold;
-	text-align:left;
+.item_type {
+	font-weight: bold;
+	text-align: left;
 }
 
 .data_blank {

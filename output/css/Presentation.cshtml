@@ -1,29 +1,76 @@
+@{
+    bool IncludeItem(ProclaimOOS.PresentationItem item) {
+        if (item.Title.StartsWith("Slide ")) {
+            return false;
+        }
+        switch (item.Title) {
+            case "Blank":
+                return false;
+            case "End":
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    string GetItemType(ProclaimOOS.PresentationItem item) {
+        switch (item.Kind) {
+            case "Content":
+                return "";
+            case "ImageSlideshow":
+                return "Slides";
+            case "Grouping":
+                return "Slides";
+            case "ConfidenceTimerCue":
+                return "Cue";
+            case "BiblePassage":
+                return "Bible Passage";
+            case "SongLyrics":
+                return "Song";
+            default:
+                return item.Kind;
+        }
+    }
+
+    string GetItemStyle(ProclaimOOS.PresentationItem item) {
+        switch (item.Kind) {
+            case "SongLyrics":
+                return "song";
+            case "Video":
+                return "video";
+            default:
+                return "";
+        }
+    }
+
+}
+
 <html>
-	<head>
-		<title>@Model.Title</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-	</head>
-	<body>
-		<h1>@Model.Title</h1>
+<head>
+    <title>@Model.Title</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <h1>@Model.Title</h1>
 
-		<table class="data_table">
-			<thead class="header">
-				<tr>
-					<td>Item</td>
-					<td>Description</td>
-				</tr>
-			</thead>
+    <table class="data_table">
+        <thead class="header">
+            <tr>
+                <td>Item</td>
+                <td>Description</td>
+            </tr>
+        </thead>
 
-			<tbody>
-				@foreach (var item in Model.items) {
-					if (item.IncludeItem) {
-						<tr class="@item.MappedStyle">
-							<td class="data_BC">@item.MappedKind</td>
-							<td>@item.Title</td>
-						</tr>
-					}
-				}
-			</tbody>
-		</table>
-	</body>
+        <tbody>
+            @foreach (var item in Model.items) {
+                if (IncludeItem(item)) {
+                    <tr class="@GetItemStyle(item)">
+                        <td class="item_type">@GetItemType(item)</td>
+                        <td>@item.Title</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>
 </html>

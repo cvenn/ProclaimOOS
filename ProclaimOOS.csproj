@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <AssemblyVersion>1.4.1</AssemblyVersion>
+    <AssemblyVersion>1.5.0</AssemblyVersion>
     <ApplicationIcon>activity-feed-256.ico</ApplicationIcon>
   </PropertyGroup>
 
