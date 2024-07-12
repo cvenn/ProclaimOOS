@@ -8,3 +8,9 @@ Usage:
 - Double-click on the downloaded file
 	- The generated order of service will be opened by the default HTML application (usually a web browser)
 
+Configuration:
+- Content filtering, layout and styles can all be changed by editing files in %LocalAppData%\cvImaging\ProclaimOOS\css
+- style.css contains the styles used by the utility
+- Presentation.cshtml is a razor template containing
+	- Logic (code) for item selection, style selection and text mapping
+	- The HTML layout template
