@@ -42,8 +42,8 @@ internal partial class Program {
                 }
 
                 // Transform model objects and render as HTML (using Razor template)
-                string template = File.ReadAllText(@$"{dataFolder}\css\Presentation.cshtml");
-                string htmlFile = @$"{dataFolder}\OrderOfService.html";
+                string template = File.ReadAllText(@$"{dataFolder}/css/Presentation.cshtml");
+                string htmlFile = @$"{dataFolder}/OrderOfService.html";
                 RenderHtml(pres, template, htmlFile);
 
                 // Open final HTML file in default application (usually a web browser)

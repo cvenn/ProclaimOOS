@@ -10,8 +10,13 @@ internal partial class Program {
         
         } else {
             string filename = args[0];
-            string dataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            ret = new ProclaimOOS().Process(filename, @$"{dataPath}/cvImaging/ProclaimOOS");
+#if DEBUG
+            string dataPath = Path.GetFullPath("../../../output");
+#else
+            string localAppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string dataPath = $"{localAppDataPath}/cvImaging/ProclaimOOS";
+#endif
+            ret = new ProclaimOOS().Process(filename, dataPath);
         }
         
         if (!ret) {
